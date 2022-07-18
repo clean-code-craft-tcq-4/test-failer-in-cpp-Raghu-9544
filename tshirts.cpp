@@ -43,6 +43,6 @@ void test_tshirtsImplementation(void)
 int main() {
     std::cout<<"calling test"<<std::endl;
     test_tshirtsImplementation();
-    std::cout << "All is well (DEFINETLY!)\n";
+    std::cout << "All is well \n";
     return 0;
 }
