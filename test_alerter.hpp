@@ -2,7 +2,7 @@
 #define TEST_ALERTER_HPP
 #include "alerter.hpp"
 
-//Implememtation functions for test exposed to alerter.cpp
+//Functions 
 void testNetworkAlertStub(void);
 void testNetworkAlert(void);
 void testAlertInCelcius(networkFuncPtr testAssignedNetworkFunction);
