@@ -1,6 +1,5 @@
 #include <iostream>
 #include <assert.h>
-
 #include "tshirts.hpp"
 
 void mapLengthToSizeName(int cms, sizeMap* tshirt_item) {
