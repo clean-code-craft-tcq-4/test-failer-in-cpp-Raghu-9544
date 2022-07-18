@@ -4,18 +4,18 @@
 #include "alerter.hpp"
 #include "test_alerter.hpp"
 
-//defines for chosing Software development cycle
+//Software development cycle
 #define PRODUCTION 1
 #define UNIT_TEST 0
 #define SW_STAGE PRODUCTION
 
-//Helper function of main --> only used by main in this file hence static and outside Alert
+
 static networkFuncPtr assignFunctionToFuncPtr(networkFuncPtr networkAlert, networkFuncPtr networkAlertStub);
 namespace Alert
 {
     int alertFailureCount = 0;
 
-// Fake Dependency created
+// Fake Dependency
     int networkAlertStub(float celcius)
     {
         //stuff function to imitate network alert in absence of real network.
@@ -45,12 +45,12 @@ namespace Alert
             return 500;
         }
     }
- // Splitted from original function to make it pure function and implement single responsiblity Principal
+ // Pure function and implement one responsiblity 
     float convertFarenheitToCelcius(float farenheit)
     {
         return ((farenheit - 32) * 5 / 9);
     }
-// Actual function with dependency inversion and dependency injection
+// Actual function with dependency 
     void alertInCelcius(float farenheit, networkFuncPtr assignedNetworkFunction)
     {
         float celcius = convertFarenheitToCelcius(farenheit);
@@ -78,7 +78,7 @@ static networkFuncPtr assignFunctionToFuncPtr(networkFuncPtr networkAlert, netwo
     }
 #else
     {
-        //do nothing, for sake of completiona and future implementation
+        //future implementation
     }
 #endif
     // dummy if...else to use 2nd function address to avoid usused parameter warning error in git.
@@ -100,7 +100,7 @@ int main()
     testNetworkAlertStub();
     testNetworkAlert();
     testConvertFarenheitToCelcius();
-    testAlertInCelcius(assignedNetworkFunc); // injected dependency by adding function pointer in orignal function
+    testAlertInCelcius(assignedNetworkFunc); // injected dependency 
 
 
     std::cout << "All is well (Definitely!)\n";
