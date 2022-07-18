@@ -1,6 +1,5 @@
 #include <iostream>
 #include <assert.h>
-
 #include "misaligned.hpp"
 #include "test_misaligned.hpp"
 
