@@ -13,14 +13,13 @@ jobs:
     - name: tshirts fail
       run: |
         g++ -Wall -Wextra -Werror tshirts.cpp -o tshirts.out
-        bash .github/workflows/expectfail.sh ./tshirts.out
-
-    - name: misaligned fail
-      run: |
-        g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out
-        bash .github/workflows/expectfail.sh ./misaligned.out
-
+        ./tshirts.out
     - name: alerter fail
       run: |
-        g++ -Wall -Wextra -Werror alerter.cpp -o alerter.out
-        bash .github/workflows/expectfail.sh ./alerter.out
+        g++ -Wall -Wextra -Werror alerter.cpp -o alerter.out test_alerter.cpp -o test_alerter.out
+        ./test_alerter.out
+        
+    - name: misaligned fail
+      run: |
+        g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out test_misaligned.cpp -o test_misaligned.out
+        ./test_misaligned.out
