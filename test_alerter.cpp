@@ -2,7 +2,7 @@
 #include <assert.h>
 #include "test_alerter.hpp"
 
-// static internal function decalration --> declared in .cpp since not intended for other files usage
+
 static void testNetworkAlertStubImpl(float celcius, int expectedReturnValue);
 static void testNetworkAlertImpl(float celcius, int expectedReturnValue);
 static void testAlertInCelciusImpl(float farenheit, networkFuncPtr testAssignedNetworkFunction, int expectedAlertCount);
