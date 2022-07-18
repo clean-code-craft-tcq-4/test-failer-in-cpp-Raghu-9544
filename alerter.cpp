@@ -1,6 +1,5 @@
 #include <iostream>
 #include <assert.h>
-
 #include "alerter.hpp"
 #include "test_alerter.hpp"
 
