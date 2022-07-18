@@ -1,22 +1,48 @@
 #include <iostream>
 #include <assert.h>
+#include "tshirts.hpp"
 
-char size(int cms) {
-    char sizeName = '\0';
-    if(cms < 38) {
-        sizeName = 'S';
-    } else if(cms > 38 && cms < 42) {
-        sizeName = 'M';
-    } else if(cms > 42) {
-        sizeName = 'L';
+void mapLengthToSizeName(int cms, sizeMap* tshirt_item) {
+    tshirt_item->length = cms;
+    if(cms <= SIZE_S_LIMIT) {
+        tshirt_item->size = S;
+    } 
+    else if(cms > SIZE_S_LIMIT && cms <= SIZE_M_LIMIT) {
+        tshirt_item->size = SIZE::M;   
+    } 
+    else if(cms > SIZE_M_LIMIT) {
+        tshirt_item->size = L;
     }
-    return sizeName;
+}
+
+void test_tshirtsImplementation(void)
+{   
+    struct sizeMap tshirt_item;
+    sizeMap* commodity = &tshirt_item;
+
+    mapLengthToSizeName(37,commodity);
+    assert(commodity->size == SIZE::S);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
+	mapLengthToSizeName(38,commodity);
+    assert(commodity->size == SIZE::S);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
+    mapLengthToSizeName(40,commodity);
+    assert(commodity->size == SIZE::M);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
+	mapLengthToSizeName(42,commodity);
+    assert(commodity->size == SIZE::M);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
+    mapLengthToSizeName(43,commodity);
+    assert(commodity->size == SIZE::L);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
+    mapLengthToSizeName(50,commodity);
+    assert(commodity->size == SIZE::L);
+    std::cout<<"Length = " <<commodity->length << "    Size = " <<commodity->size <<std::endl;
 }
 
 int main() {
-    assert(size(37) == 'S');
-    assert(size(40) == 'M');
-    assert(size(43) == 'L');
-    std::cout << "All is well (maybe!)\n";
+    std::cout<<"calling test"<<std::endl;
+    test_tshirtsImplementation();
+    std::cout << "All is well \n";
     return 0;
 }
