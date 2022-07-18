@@ -60,3 +60,4 @@ static void testAlertInCelciusImpl(float farenheit, networkFuncPtr assignedNetwo
 	Alert::alertInCelcius(farenheit, assignedNetworkFunction);
 	assert(Alert::alertFailureCount == expectedAlertCount);
 }
+
